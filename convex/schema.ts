@@ -10,7 +10,7 @@ export default defineSchema({
   }).index('by_clerk_id',['clerkId']),
 
   plans: defineTable({
-    userId :v.id("users"),
+    userId :v.string(),
     name: v.string(),
     workoutPlan: v.object({
       schedule: v.array(v.string()),
@@ -18,8 +18,8 @@ export default defineSchema({
         day: v.string(),
         routines: v.array(v.object({
           name: v.string(),
-          sets: v.optional(v.string()),
-          reps: v.optional(v.string()),
+          sets: v.optional(v.number()),
+          reps: v.optional(v.number()),
           duration: v.optional(v.string()),
           description: v.optional(v.string()),
           exercises: v.optional(v.array(v.string())),
